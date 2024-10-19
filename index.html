@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Inventrack</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #F0B135;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+
+        .button-container {
+            margin-top: 40px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            background-color: white;
+            color: #f4a427;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+
+        .button:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="assets/logo-white.png" alt="Inventrack Logo">
+        <div class="brand">INVENTRACK</div>
+        <div class="button-container">
+            <button id="signupbutton" class="button" >Sign Up</button>
+            <button id="loginbutton" class="button">Log In</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#signupbutton').click(function(){
+                window.location.href = "/inventrackweb/signup.html"
+            })
+            $('#loginbutton').click(function(){
+                window.location.href = "/inventrackweb/login.html"
+            })
+
+            
+            
+            
+            const params = new URLSearchParams(window.location.search);
+            
+            
+            
+           
+            
+            
+            
+            if (params.has('Success')) {
+                alert('Account Created Successfully');
+            }
+        });
+
+
+
+
+    </script>
+</body>
+</html>

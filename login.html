@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Inventrack</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Lexend Deca Regular -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap" rel="stylesheet">
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Left Section with Form -->
+    <div class="left-section">
+        <div class="form-container">
+            <div class="title">Welcome back!</div>
+            <div class="subtitle">Fill out the details to continue.</div>
+            <form action="backend/login.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label for="business-name">Business Name</label>
+                    <input type="text" name="business-name" id="business-name" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" class="input-field">
+                        <span class="icon">
+                            <img src="assets/icon-hide.png" alt="Show Password" class="icon-image">
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="confirm-button">LOG IN</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Right Section with Logo -->
+    <div class="right-section">
+        <a href="index.html" style="text-decoration: none;">
+            <div class="logo-container">
+
+                <img src="assets/logo-white.png" alt="Inventrack Logo">
+
+
+                <div class="logo-text">INVENTRACK</div>
+            </div>
+        </a>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+
+
+
+
+
+
+        if (params.has('Invalid')) {
+            alert('The email or businessname or password you’ve entered is incorrect.');
+        }
+    </script>
+</body>
+
+</html>

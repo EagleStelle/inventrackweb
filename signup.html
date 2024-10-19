@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Inventrack</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Lexend Deca Regular -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap" rel="stylesheet">    
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Left Section with Form -->
+    <div class="left-section">
+        <div class="form-container">
+            <div class="title">Create an account</div>
+            <div class="subtitle">Let's get started!</div>
+            <form action="backend/signup.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label for="business-name">Business Name</label>
+                    <input type="text" name="business-name" id="business-name" class="input-field">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" class="input-field">
+                        <span class="icon">
+                            <img src="assets/icon-hide.png" alt="Show Password" class="icon-image">
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-group">
+                        <input type="password" id="confirm-password" class="input-field">
+                        <span class="icon">
+                            <img src="assets/icon-hide.png" alt="Show Password" class="icon-image">
+                        </span>
+                    </div>
+                </div>                
+                <button type="submit" class="signup-button">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Right Section with Logo -->
+    <div class="right-section">
+        <div class="logo-container">
+            <img src="assets/logo-white.png" alt="Inventrack Logo">
+            <div class="logo-text">INVENTRACK</div>
+        </div>
+    </div>
+
+</body>
+</html>

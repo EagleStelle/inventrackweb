@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: #fff;
+}
+
+.settings {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Header */
+.header {
+    background-color: #F0B135;
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav-right li a:link,
+.nav-right li a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-right li a:hover {
+    color: red;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.bell-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* NavBar */
+.nav-right {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-right li {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-right li.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Slightly below the text */
+    left: 0;
+    right: 0;
+    height: 4px; /* Height of the underline */
+    background-color: #F0B135;
+    border-radius: 2px;
+}
+
+/* Profile Section */
+.profile-section {
+    background-color: #F0B135; /* Yellow background */
+    padding: 40px 20px;
+    position: relative;
+    text-align: left; /* Align content to the left */
+    margin-bottom: 40px;
+}
+.profile-img {
+    position: relative;
+    z-index: 1;
+}
+.profile-img img {
+    width: 150px;
+    height: 210px; 
+    border-radius: 15px; 
+    border: 1px solid white; /* Optional white border */
+    position: absolute;
+    bottom: -200px;
+    left: 20px; /* Align image to the left */
+}
+.profile-details {
+    margin-left: 200px; /* Push text to the right of the image */
+}
+.profile-details h2, .profile-details p {
+    margin: 10px 0;
+    color: white;
+    font-size: 28px;
+}
+.profile-details p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Settings List */
+.settings-list {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 80px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #F0B135;
+    text-decoration: none;
+    color: black;
+}
+.setting-item:last-child {
+    border-bottom: none;
+}
+.icon-text {
+    display: flex;
+    align-items: center;
+}
+.icon-text img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Arrow Styling */
+.arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #F0B135;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 27px; /* Match this to the height to center vertically */
+}
+
+
+

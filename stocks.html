@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Inventrack</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="stocks.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Lexend Deca Regular -->
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap" rel="stylesheet">    
+        <!-- Montserrat -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div class="stocks">
+        <header class="header">
+            <div class="nav">
+                <div class="nav-left">
+                    <img src="assets/logo-gold.png" alt="Logo" class="logo">
+                    <img src="assets/icon-bell.png" alt="Bell" class="bell-icon">
+                </div>
+                <ul class="nav-right">
+                    <li>Dashboard</li>
+                    <li class="active">Stocks</li>
+                    <li>Accounting</li>
+                    <li>Settings</li>
+                </ul>
+            </div>
+        </header>
+        <section class="filter-section">
+            <button>Item Name</button>
+            <button>Shelf Number</button>
+            <button>Supplier</button>
+            <button>Status</button>
+            <div class="search-bar">
+                <span class="search-icon">
+                    <img src="assets/icon-search.png" alt="Search Icon" width="16" height="16">
+                </span>
+                <input type="text" id="search-input" placeholder="Search" onkeydown="handleSearch(event)">
+            </div>
+        </section>
+    
+        <section class="card-container">
+            <div class="card">
+                <!-- Card image with edit button inside -->
+                <div class="card-img">
+                    <img src="assets/background.png" alt="Item Image">
+                    <button class="edit-btn">&#x270E;</button> <!-- Edit button in top-right -->
+                </div>
+                
+                <div class="card-details">
+                    <div class="card-header">
+                        <div class="item-name-quantity">
+                            <h3 class="item-name">ITEM NAME</h3>
+                            <div class="quantity">100</div>
+                        </div>
+                    </div>
+                    <div class="quantity-text">qty.</div>
+                    <p>SKU: ###</p>
+                    <p>Shelf Number: </p>
+                    <p>Supplier: </p>
+                    <p>Status: </p>
+                    <button class="order-now">ORDER NOW</button>
+                </div>
+            </div>
+        </section>
+        <button class="add-btn">+</button>
+    </div>
+
+    
+</body>
+</html>

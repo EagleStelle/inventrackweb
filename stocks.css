@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: #fff;
+}
+.stocks {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Header */
+.header {
+    background-color: #F0B135;
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    z-index: 10;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.bell-icon {
+    width: 30px;
+    height: 30px;
+}
+/* NavBar */
+.nav-right {
+    display: flex;
+    list-style-type: none;
+}
+.nav-right li {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+.nav-right li.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Slightly below the text */
+    left: 0;
+    right: 0;
+    height: 4px; /* Height of the underline */
+    background-color: #F0B135;
+    border-radius: 2px;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #F0B135;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    gap: 10px;
+}
+
+/* Filter buttons with uniform min-width */
+.filter-section button {
+    background-color: #F3CC6C;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+    min-width: 150px;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    position: relative;
+}
+.search-bar input {
+    padding: 10px 10px 10px 40px;
+    border-radius: 15px;
+    border: 0px;
+    font-size: 16px;
+    background-color: #F3CC6C;
+}
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+}
+.search-icon img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Card Container */
+.card-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #F0B135; 
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 250px;
+}
+.card .quantity {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F0B135;
+    text-align: right;
+    margin-left: 10px;
+}
+.card .quantity-text {
+    font-size: 16px;
+    color: #F0B135;
+    text-align: right;
+    margin-top: 2px;
+}
+.card-img img {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+.card .card-img {
+    position: relative;  /* Ensures that the edit button stays inside the card image */
+    width: 100%;
+    height: auto;
+}
+.card .edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #F0B135;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    z-index: 1;
+}
+.card-details {
+    padding: 15px;
+}
+.card .item-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+    flex-grow: 1;
+}
+.card .item-name-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Ensures vertical alignment */
+    width: 100%;
+}
+.card-details p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin: 5px 0;
+}
+.card .card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.card .order-now {
+    background-color: #F0B135;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Lexend Deca', sans-serif;
+    display: block;
+    width: 100%;
+    text-align: center;  
+}
+
+/* Add Item Button */
+/* Add button styles */
+.add-btn {
+    position: fixed;  /* Stays in position even while scrolling */
+    bottom: 20px;  /* Distance from the bottom of the screen */
+    right: 20px;  /* Distance from the right of the screen */
+    background-color: #F0B135;
+    width: 60px;  /* Height and width to make it circular */
+    height: 60px;
+    border-radius: 50%;  /* Circular shape */
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    cursor: pointer;
+    font-size: 30px;  /* Larger size for the "+" */
+    color: white;  /* White color for the "+" */
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the "+" in the middle */
+    z-index: 1000;  /* Ensure it stays on top */
+    text-align: center;
+}
+.add-btn:focus {
+    outline: none;  /* Remove focus outline when clicked */
+}
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(213, 174, 78, 0.4); 
+    transform: translate(-50%, -50%); 
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.modal-content {
+    background-color: #F0B135;
+    padding: 15px;
+    margin: 0 auto; 
+    border: 1px solid #d11b1b;
+    width: 50%; 
+    height: 100%; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between; /* Moves close button to the right */
+    align-items: center;
+}
+.modal-container {
+    margin-top: 50px;
+}
+.modal-button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #d11b1b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    
+}
+.modal-button:hover {
+    background-color: #F3CC6C;
+    color: black;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#edit-form input[type="text"], 
+#edit-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #F3CC6C;
+    border: 1px solid #d11b1b;
+}
+
+#edit-form input[type="file"] {
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#edit-form input[type="file"]::file-selector-button {
+    background-color: #d11b1b;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#edit-form input[type="file"]::file-selector-button:hover {
+    background-color: #F3CC6C;
+    color: black;
+}
+
+.close-button {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+}
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f3cc6c;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #d11b1b;
+    border-radius: 10px;
+    border: 2px solid #f3cc6c;
+}
+
+/* Green text for 'In stock' */
+.card-details .status.iin-stock {
+    color: green;
+    font-weight:900;
+    font-size: larger;
+}
+
+.card-details .status.low-stock {
+    color: orange;
+    font-weight:900;
+    font-size: larger;
+}
+
+.card-details .status.out-of-stock {
+    color: red;
+    animation: blink 1s linear infinite;
+    font-weight:900;
+    font-size: larger;
+}
+
+
+/* Blinking animation */
+.card-details .status.out-of-stock {
+    color: red;
+    animation: blink 1s linear infinite;
+    font-weight: 900;
+    
+}
+
+/* Continuous blinking animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.8; /* Start and end with 0.8 opacity */
+    }
+    50% {
+        opacity: 0.3; /* Blink to 0.3 opacity */
+    }
+}
+
