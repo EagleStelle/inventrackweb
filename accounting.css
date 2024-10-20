@@ -124,22 +124,24 @@ body {
     max-width: 100%;
 }
 .account-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* Adjust the column sizes as needed */
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
     padding: 15px 20px;
-    /* border-bottom: 1px solid #ddd; */
-    transition: background-color 0.3s ease;
+    width: 100%;
     border-radius: 15px;
 }
 .account-row:hover {
     background-color: #F3CC6C;
 }
-
 .profile {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.status {
+    text-align: left;
 }
 .profile-icon {
     width: 50px;
@@ -173,7 +175,7 @@ body {
     font-weight: bold;
 }
 .status .pending {
-    color: #F3CC6C;
+    color: blue;
     font-weight: bold;
 }
 .status .unpaid {
@@ -188,6 +190,7 @@ body {
 .actions {
     display: flex;
     align-items: center;
+    justify-self: end;
     gap: 10px;
 }
 .edit-btn, .delete-btn {
@@ -230,52 +233,138 @@ body {
     outline: none; 
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Modal */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  .modal-content {
-    display: hidden;
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    display: none;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(213, 174, 78, 0.4); 
+    transform: translate(-50%, -50%);
+}
+.modal-content {
+    background-color: #F0B135;
+    padding: 30px;
+    margin: 0 auto; 
     border: 1px solid #d11b1b;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    width: 50%; 
+    height: 100%; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    overflow-y: auto;
+}
+.modal-content {
+    background-color: #F0B135;
+    padding: 15px;
+    margin: 0 auto; 
+    border: 1px solid #d11b1b;
+    width: 50%; 
+    height: 100%; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#editForm input[type="text"], 
+#editForm input[type="number"],
+#addForm input[type="text"], 
+#addForm input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #F3CC6C;
+    border: 1px solid #d11b1b;
+}
+/* #editForm input[type="file"] {
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+#editForm input[type="file"]::file-selector-button {
+    background-color: #d11b1b;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+#editForm input[type="file"]::file-selector-button:hover {
+    background-color: #F3CC6C;
+    color: black;
+} */
+select {
+    width: 100%;
+    padding: 10px;
+    background-color: #F3CC6C;
+    border: 1px solid #d11b1b;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+select:focus {
+    background-color: #F0B135;
+    border: 1px solid #d11b1b;
+}
+.modal-button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #d11b1b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    
+}
+.modal-button:hover {
+    background-color: #F3CC6C;
+    color: black;
+}
+.close {
+    color: red;
+    font-size: 32px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  .editForm{
-    display: block;
-  }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f3cc6c;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d11b1b;
+    border-radius: 10px;
+    border: 2px solid #f3cc6c;
+}
+.editForm{
+display: block;
+}
