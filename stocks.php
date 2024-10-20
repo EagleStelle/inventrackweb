@@ -233,8 +233,6 @@ $result = $conn->query($sql);
     $('#edit-modal').show();
 }
 
-
-
 fetchStocks();
     // Function to close the modal
     function closeModal() {
@@ -314,12 +312,6 @@ fetchStocks();
         const supplierLink = $(this).val(); // Get the supplier link
         redirectToLink(supplierLink); // Redirect
     });
-
-
-
-
-
-
 }
 
 // Function to handle redirection

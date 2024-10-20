@@ -28,38 +28,88 @@
         </div>
         <!-- Settings List -->
         <div class="settings-list">
-            <a href="#" class="setting-item">
+            <div class="setting-item" id="account-settings">
                 <div class="icon-text">
                     <img src="assets/icon-settings-account.png" alt="Account Icon">
                     <span>Account Settings</span>
                 </div>
                 <span class="arrow">&#8250;</span>
-            </a>
+            </div>
+            <!-- Dropdown Menu for Account Settings -->
+            <div class="dropdown-content" id="account-dropdown">
+                <div class="dropdown-item">Change Username</div>
+                <div class="dropdown-item">Change Shop Name</div>
+            </div>
 
-            <a href="#" class="setting-item">
+            <div class="setting-item" id="login-security">
                 <div class="icon-text">
                     <img src="assets/icon-settings-security.png" alt="Security Icon">
                     <span>Log In and Security</span>
                 </div>
                 <span class="arrow">&#8250;</span>
-            </a>
-
-            <a href="#" class="setting-item">
-                <div class="icon-text">
-                    <img src="assets/icon-settings-notifications.png" alt="Notification Icon">
-                    <span>Notification Settings</span>
-                </div>
-                <span class="arrow">&#8250;</span>
-            </a>
+            </div>
+            <!-- Dropdown Menu for Log In and Security -->
+            <div class="dropdown-content" id="security-dropdown">
+                <div class="dropdown-item">Change Password</div>
+            </div>
 
             <a href="backend/logout.php" class="setting-item">
                 <div class="icon-text">
                     <img src="assets/icon-settings-signout.png" alt="Sign Out Icon">
                     <span>Sign Out</span>
                 </div>
-                <span class="arrow">&#8250;</span>
             </a>
         </div>
-    </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Dropdowns and arrows
+                const accountSettings = document.getElementById('account-settings');
+                const accountDropdown = document.getElementById('account-dropdown');
+                const accountArrow = accountSettings.querySelector('.arrow');
+                const accountItems = accountDropdown.querySelectorAll('.dropdown-item');
+
+                const loginSecurity = document.getElementById('login-security');
+                const securityDropdown = document.getElementById('security-dropdown');
+                const securityArrow = loginSecurity.querySelector('.arrow');
+                const securityItems = securityDropdown.querySelectorAll('.dropdown-item');
+
+                // Helper function to apply the falling animation
+                function toggleDropdown(dropdown, items, arrow, isOpen) {
+                    let delay = 0;
+                    if (isOpen) {
+                        items.forEach((item, index) => {
+                            item.style.animation = `fallDown 0.3s ease forwards`;
+                            item.style.animationDelay = `${delay}s`;
+                            delay += 0.1; // Stagger the animation
+                        });
+                        dropdown.style.display = 'block';
+                    } else {
+                        delay = 0; // Reset the delay for falling up
+                        items.forEach((item, index) => {
+                            item.style.animation = `fallUp 0.3s ease forwards`;
+                            item.style.animationDelay = `${delay}s`;
+                            delay += 0.1;
+                        });
+                        setTimeout(() => {
+                            dropdown.style.display = 'none'; // Hide after the animation finishes
+                        }, 300 + (items.length * 100)); // Wait until the animation is done
+                    }
+                    arrow.classList.toggle('rotate');
+                }
+
+                // Toggle dropdown for Account Settings
+                accountSettings.addEventListener('click', function () {
+                    const isVisible = accountDropdown.style.display === 'block';
+                    toggleDropdown(accountDropdown, accountItems, accountArrow, !isVisible);
+                });
+
+                // Toggle dropdown for Log In and Security
+                loginSecurity.addEventListener('click', function () {
+                    const isVisible = securityDropdown.style.display === 'block';
+                    toggleDropdown(securityDropdown, securityItems, securityArrow, !isVisible);
+                });
+            });
+        </script>
 </body>
 </html>
