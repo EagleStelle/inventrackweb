@@ -350,6 +350,7 @@ body {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
+    border-right: 1px solid #F0B135;
 }
 .stock-items-container {
     display: flex;
@@ -541,16 +542,3 @@ body {
 .status-default {
     color: gray;
 }
-
-
-
-.bar-graph {
-    
-    
-  
-   
-    
-    
-    
-}
-
