@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Inventrack</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel="stylesheet" href="stocks.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <!-- Lexend Deca Regular -->
-        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap" rel="stylesheet">    
-        <!-- Montserrat -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    </head>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Inventrack</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="stocks.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 <body>
     <div class="stocks">
+        <!-- Include header.php if needed -->
         <header class="header">
             <div class="nav">
                 <div class="nav-left">
@@ -22,13 +23,22 @@
                     <img src="assets/icon-bell.png" alt="Bell" class="bell-icon">
                 </div>
                 <ul class="nav-right">
-                    <li>Dashboard</li>
-                    <li class="active">Stocks</li>
-                    <li>Accounting</li>
-                    <li>Settings</li>
+                    <li>
+                        <a href="dashboard.html" class="no-style">Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="stocks.html" class="no-style">Stocks</a>
+                    </li>
+                    <li>
+                        <a href="accounting.html" class="no-style">Accounting</a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="no-style">Settings</a>
+                    </li>
                 </ul>
             </div>
         </header>
+
         <section class="filter-section">
             <button>Item Name</button>
             <button>Shelf Number</button>
@@ -41,34 +51,87 @@
                 <input type="text" id="search-input" placeholder="Search" onkeydown="handleSearch(event)">
             </div>
         </section>
-    
+
         <section class="card-container">
-            <div class="card">
-                <!-- Card image with edit button inside -->
+            <!-- Example card with placeholders -->
+            <div class="card" data-id="1">
                 <div class="card-img">
-                    <img src="assets/background.png" alt="Item Image">
-                    <button class="edit-btn">&#x270E;</button> <!-- Edit button in top-right -->
+                    <img src="assets/background.png" alt="Item Image Placeholder">
+                    <button class="edit-btn" value="Supplier Link Placeholder">&#x270E;</button>
                 </div>
-                
                 <div class="card-details">
                     <div class="card-header">
                         <div class="item-name-quantity">
-                            <h3 class="item-name">ITEM NAME</h3>
-                            <div class="quantity">100</div>
+                            <h3 class="item-name">Name</h3>
+                            <div class="quantity">Quantity</div>
                         </div>
                     </div>
                     <div class="quantity-text">qty.</div>
-                    <p>SKU: ###</p>
-                    <p>Shelf Number: </p>
-                    <p>Supplier: </p>
-                    <p>Status: </p>
-                    <button class="order-now">ORDER NOW</button>
+                    <p>SKU: SKU Placeholder</p>
+                    <p>Shelf Number: Shelf Number Placeholder</p>
+                    <p>Price: Price Placeholder</p>
+                    <p>Supplier: Supplier Name Placeholder</p>
+                    <p>Quantity Warning: Quantity Warning Placeholder</p>
+                    <p class="status">Status: Status Placeholder</p>
+                    <button class="order-now" value="Supplier Link Placeholder">ORDER NOW</button>
                 </div>
             </div>
         </section>
-        <button class="add-btn">+</button>
+
+        <button class="add-btn" onclick="addItem()">+</button>
     </div>
 
-    
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Item</h2>
+                <span class="close-button">&times;</span>
+            </div>
+
+            <form id="edit-form">
+                <input type="hidden" id="edit-item-id" name="id">
+                <label for="edit-item-name">Item Name:</label>
+                <input type="text" id="edit-item-name" name="name" placeholder="Item Name Placeholder">
+
+                <label for="edit-sku">SKU:</label>
+                <input type="text" id="edit-sku" name="sku" placeholder="SKU Placeholder">
+
+                <label for="edit-price">Price:</label>
+                <input type="text" id="edit-price" name="price" placeholder="Price Placeholder">
+
+                <label for="edit-warning">Quantity Warning:</label>
+                <input type="text" id="edit-warning" name="warning" placeholder="Warning Placeholder">
+
+                <label for="edit-supplier">Supplier:</label>
+                <input type="text" id="edit-supplier" name="supplier" placeholder="Supplier Placeholder">
+
+                <label for="edit-supplierlink">Supplier Link:</label>
+                <input type="text" id="edit-supplierlink" name="supplierLink" placeholder="Supplier Link Placeholder">
+
+                <label for="imageUpload">Upload an image:</label>
+                <input type="file" id="imageUpload" name="image" accept="image/*">
+
+                <button type="submit" class="modal-button">Save Changes</button>
+            </form>
+            <button id="delete-btn" type="button" class="modal-button">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        function addItem() {
+            alert("Functionality to add an item. Placeholder for JavaScript function.");
+        }
+
+        function handleSearch(event) {
+            alert("Search functionality triggered. Placeholder for search event.");
+        }
+
+        $(document).ready(function() {
+            // Placeholder for modal functionality
+            $('.close-button').on('click', function() {
+                $('#edit-modal').hide();
+            });
+        });
+    </script>
 </body>
 </html>
